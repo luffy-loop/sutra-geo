@@ -20,3 +20,24 @@
 .journal-grid .memory-card img,.journal-grid .memory-card video{border-radius:0!important;filter:saturate(.82) sepia(.08);border:1px solid #cdbca4}.journal-grid .memory-stamp{width:40px;height:40px;border:1px solid #b56a4d;border-radius:50%;display:grid;place-items:center;color:#a04b32;margin-bottom:18px}.journal-grid .eyebrow{font-size:8px!important;letter-spacing:.18em!important;color:#a04b32!important}.journal-grid h3{font:400 25px Georgia,serif!important;color:#302a24!important;margin:8px 0!important}.journal-grid p{color:#756a5d}.journal-grid small{color:#9a8c7a}.journal-grid .small-btn{border:0;background:none;color:#a04b32;font-size:9px;cursor:pointer;float:right}
 .journal-footer{border-top:1px solid #cfc1ad;padding:24px 0 60px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.18em;color:#988a79}.journal-footer a{color:#a04b32;text-decoration:none}
 @media(max-width:760px){.journal-hero-grid{grid-template-columns:1fr;gap:30px}.journal-postcard{min-height:230px}.journal-grid{grid-template-columns:1fr}.journal-grid .memory-card:nth-child(3n+2),.journal-grid .memory-card:nth-child(3n){transform:none}.journal-shelf-head{align-items:start;gap:15px;flex-direction:column}.journal-actions{width:100%}.journal-rule{gap:15px;flex-direction:column}.journal-hero{padding-top:28px}}
+
+/* SUTRA JOURNAL OVERRIDE — visible editorial treatment */
+body.sutra-scrapbook-page{background:#eee4d1!important;color:#302a24!important}
+body.sutra-scrapbook-page .topbar{background:rgba(238,228,209,.94)!important;border-bottom:1px solid #c9b99f!important;backdrop-filter:blur(14px)}
+body.sutra-scrapbook-page .page-wrap{max-width:1240px!important;padding-top:32px!important}
+.journal-hero{padding:48px 0 0!important;margin-bottom:72px!important}
+.journal-hero-grid{min-height:430px!important}
+.journal-hero h1{font-size:clamp(58px,7vw,104px)!important;max-width:720px}
+.journal-postcard{min-height:370px!important;background:linear-gradient(135deg,#d9c09a,#efe1c6)!important;box-shadow:16px 18px 0 rgba(92,67,39,.09),0 25px 55px rgba(70,50,30,.12)!important}
+.journal-postcard .postcard-sun{font-size:145px!important}
+.journal-shelf{position:relative;padding-top:34px!important}
+.journal-shelf:before{content:"FIELD NOTES / INDIA";display:block;position:absolute;right:0;top:0;font:9px Arial,sans-serif;letter-spacing:.24em;color:#a04b32}
+.journal-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}
+.journal-grid .memory-card{min-height:245px!important}
+.journal-grid .memory-card:after{content:"SUTRA-GEO";position:absolute;right:18px;bottom:14px;font:7px Arial,sans-serif;letter-spacing:.18em;color:#b7a590}
+.journal-grid .memory-card:nth-child(3n+1){transform:rotate(-.8deg)!important}
+.journal-grid .memory-card:nth-child(3n+2){transform:translateY(18px) rotate(1deg)!important}
+.journal-grid .memory-card:nth-child(3n){transform:rotate(-.3deg)!important}
+.journal-grid .memory-card:hover{transform:translateY(-8px) rotate(0)!important}
+.journal-footer{margin-top:30px!important}
+@media(max-width:760px){body.sutra-scrapbook-page .page-wrap{padding:20px!important}.journal-grid{grid-template-columns:1fr!important}.journal-grid .memory-card:nth-child(3n+1),.journal-grid .memory-card:nth-child(3n+2),.journal-grid .memory-card:nth-child(3n){transform:none!important}}
