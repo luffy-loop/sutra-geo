@@ -1,86 +1,15 @@
-.journal-hero{margin:0 0 56px;padding:54px 0 0;position:relative}
-.journal-kicker{display:flex;align-items:center;gap:12px;font-size:9px;letter-spacing:.2em;color:#8c7964;text-transform:uppercase}
-.journal-kicker span:first-child{font-family:Georgia,serif;font-size:20px;color:#a04b32;letter-spacing:0}
-.journal-kicker i{height:1px;width:48px;background:#c9b89d}
-.journal-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;margin-top:38px}
-.journal-hero h1{font-family:Georgia,serif;font-size:clamp(48px,6vw,82px);line-height:.92;font-weight:400;letter-spacing:-.055em;margin:10px 0 24px;color:#302a24}
-.journal-hero h1 em{font-weight:400;color:#a04b32}
-.journal-lede{max-width:520px;font-family:Georgia,serif;font-size:18px;line-height:1.7;color:#756a5d}
-.journal-postcard{min-height:310px;background:#e8d7b8;border:1px solid #c8b38f;position:relative;display:flex;align-items:flex-end;padding:28px;box-shadow:10px 14px 0 rgba(84,62,38,.06);transform:rotate(1.2deg)}
-.journal-postcard:before{content:"";position:absolute;inset:12px;border:1px solid rgba(113,77,42,.25);pointer-events:none}
-.journal-postcard:after{content:"";position:absolute;right:20px;top:20px;width:58px;height:58px;border-radius:50%;border:1px dashed #a04b32;opacity:.55}
-.postcard-sun{position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-size:110px;color:#a04b32;opacity:.72}
-.postcard-copy{display:flex;flex-direction:column;gap:5px;position:relative}.postcard-copy strong{font:400 46px Georgia,serif;letter-spacing:.08em}.postcard-copy span{font-size:8px;letter-spacing:.22em;color:#786b5d}
-.postcard-stamp{position:absolute;right:30px;bottom:28px;border:1px solid #a04b32;color:#a04b32;padding:8px 10px;text-align:center;font:12px Georgia,serif;transform:rotate(-7deg)}.postcard-stamp small{font:7px Arial,sans-serif;letter-spacing:.14em}
-.journal-rule{border-top:1px solid #cfc1ad;border-bottom:1px solid #cfc1ad;padding:12px 0;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.17em;color:#928373}
-.journal-shelf{padding:0 0 45px}.journal-shelf-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:20px}.journal-shelf-head>div:first-child{display:flex;align-items:center;gap:14px}.section-no{font-size:10px;letter-spacing:.15em;color:#a04b32}.journal-shelf h2{font:400 30px Georgia,serif;margin:0;color:#302a24}.journal-actions{display:flex;gap:12px;align-items:center}.journal-add,.journal-clear{border:1px solid #c9baa5;background:transparent;padding:10px 14px;text-decoration:none;color:#554b40;font-size:10px;letter-spacing:.08em;cursor:pointer}.journal-add{background:#302a24;color:#f7f0e3;border-color:#302a24}.journal-clear{color:#8b4b39}.journal-filters{margin-bottom:26px}
-.journal-filters button{border:0;background:transparent!important;border-bottom:1px solid transparent!important;border-radius:0!important;color:#766a5c!important;font-size:10px!important;letter-spacing:.1em;text-transform:uppercase}.journal-filters button:first-child{color:#a04b32!important;border-color:#a04b32!important}
-.journal-grid{display:grid!important;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
-.journal-grid .memory-card{background:#f8f1e4!important;border:1px solid #d8c9b4!important;border-radius:0!important;padding:22px!important;box-shadow:3px 5px 0 rgba(75,55,33,.05)!important;position:relative;min-height:210px;transition:transform .25s,box-shadow .25s}.journal-grid .memory-card:nth-child(3n+2){transform:translateY(14px) rotate(-.7deg)}.journal-grid .memory-card:nth-child(3n){transform:rotate(.7deg)}.journal-grid .memory-card:hover{transform:translateY(-5px) rotate(0);box-shadow:8px 12px 20px rgba(75,55,33,.1)!important}
-.journal-grid .memory-card img,.journal-grid .memory-card video{border-radius:0!important;filter:saturate(.82) sepia(.08);border:1px solid #cdbca4}.journal-grid .memory-stamp{width:40px;height:40px;border:1px solid #b56a4d;border-radius:50%;display:grid;place-items:center;color:#a04b32;margin-bottom:18px}.journal-grid .eyebrow{font-size:8px!important;letter-spacing:.18em!important;color:#a04b32!important}.journal-grid h3{font:400 25px Georgia,serif!important;color:#302a24!important;margin:8px 0!important}.journal-grid p{color:#756a5d}.journal-grid small{color:#9a8c7a}.journal-grid .small-btn{border:0;background:none;color:#a04b32;font-size:9px;cursor:pointer;float:right}
-.journal-footer{border-top:1px solid #cfc1ad;padding:24px 0 60px;display:flex;justify-content:space-between;font-size:8px;letter-spacing:.18em;color:#988a79}.journal-footer a{color:#a04b32;text-decoration:none}
-@media(max-width:760px){.journal-hero-grid{grid-template-columns:1fr;gap:30px}.journal-postcard{min-height:230px}.journal-grid{grid-template-columns:1fr}.journal-grid .memory-card:nth-child(3n+2),.journal-grid .memory-card:nth-child(3n){transform:none}.journal-shelf-head{align-items:start;gap:15px;flex-direction:column}.journal-actions{width:100%}.journal-rule{gap:15px;flex-direction:column}.journal-hero{padding-top:28px}}
-
-/* SUTRA JOURNAL OVERRIDE — visible editorial treatment */
-body.sutra-scrapbook-page{background:#eee4d1!important;color:#302a24!important}
-body.sutra-scrapbook-page .topbar{background:rgba(238,228,209,.94)!important;border-bottom:1px solid #c9b99f!important;backdrop-filter:blur(14px)}
-body.sutra-scrapbook-page .page-wrap{max-width:1240px!important;padding-top:32px!important}
-.journal-hero{padding:48px 0 0!important;margin-bottom:72px!important}
-.journal-hero-grid{min-height:430px!important}
-.journal-hero h1{font-size:clamp(58px,7vw,104px)!important;max-width:720px}
-.journal-postcard{min-height:370px!important;background:linear-gradient(135deg,#d9c09a,#efe1c6)!important;box-shadow:16px 18px 0 rgba(92,67,39,.09),0 25px 55px rgba(70,50,30,.12)!important}
-.journal-postcard .postcard-sun{font-size:145px!important}
-.journal-shelf{position:relative;padding-top:34px!important}
-.journal-shelf:before{content:"FIELD NOTES / INDIA";display:block;position:absolute;right:0;top:0;font:9px Arial,sans-serif;letter-spacing:.24em;color:#a04b32}
-.journal-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:24px!important}
-.journal-grid .memory-card{min-height:245px!important}
-.journal-grid .memory-card:after{content:"SUTRA-GEO";position:absolute;right:18px;bottom:14px;font:7px Arial,sans-serif;letter-spacing:.18em;color:#b7a590}
-.journal-grid .memory-card:nth-child(3n+1){transform:rotate(-.8deg)!important}
-.journal-grid .memory-card:nth-child(3n+2){transform:translateY(18px) rotate(1deg)!important}
-.journal-grid .memory-card:nth-child(3n){transform:rotate(-.3deg)!important}
-.journal-grid .memory-card:hover{transform:translateY(-8px) rotate(0)!important}
-.journal-footer{margin-top:30px!important}
-@media(max-width:760px){body.sutra-scrapbook-page .page-wrap{padding:20px!important}.journal-grid{grid-template-columns:1fr!important}.journal-grid .memory-card:nth-child(3n+1),.journal-grid .memory-card:nth-child(3n+2),.journal-grid .memory-card:nth-child(3n){transform:none!important}}
-
-/* FINAL FIELD JOURNAL ART DIRECTION */
-.scrapbook-new{max-width:1320px!important;padding-top:0!important}
-.scrapbook-new:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.055;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.45'/%3E%3C/svg%3E");z-index:50}
-.journal-masthead{padding:34px 0 0;border-bottom:1px solid rgba(65,42,23,.22)}
-.mast-top,.mast-bottom{display:flex;justify-content:space-between;font:600 9px/1 'DM Sans',sans-serif;letter-spacing:.2em;color:#8d7964;text-transform:uppercase}
-.mast-top{padding-bottom:14px;border-bottom:1px solid rgba(65,42,23,.14)}
-.mast-main{display:grid;grid-template-columns:1.08fr .92fr;min-height:650px}
-.mast-copy{padding:65px 8px 58px 4vw;display:flex;flex-direction:column;justify-content:center;position:relative}
-.ink-mark{font-size:20px;color:#a24a31;margin-bottom:24px}
-.journal-kicker{font:700 10px/1 'DM Sans',sans-serif;letter-spacing:.25em;color:#a24a31;margin:0 0 20px}
-.mast-copy h1{font:500 clamp(64px,7.4vw,112px)/.79 'Cormorant Garamond',serif;letter-spacing:-.055em;color:#30231c;margin:0}
-.mast-copy h1 em{font-style:normal;color:#a24a31}
-.mast-lede{max-width:500px;margin:34px 0 28px;color:#75675a;font:400 16px/1.75 'DM Sans',sans-serif}
-.mast-meta{display:flex;align-items:center;gap:12px;font:700 9px 'DM Sans',sans-serif;letter-spacing:.15em;color:#68594b;text-transform:uppercase}
-.mast-meta i{width:22px;height:1px;background:#b9a58c}
-.journal-art{position:relative;margin:58px 0 58px 35px;background:#c9a66d;overflow:hidden;box-shadow:18px 22px 0 rgba(73,49,30,.07),0 25px 55px rgba(60,38,20,.16);transform:rotate(1.2deg)}
-.art-paper{position:absolute;inset:20px;background:#e8d6b5;border:1px solid rgba(80,54,30,.25)}
-.art-circle{position:absolute;border:1px solid rgba(112,69,35,.24);border-radius:50%;left:50%;top:46%;transform:translate(-50%,-50%)}
-.c1{width:470px;height:470px}.c2{width:350px;height:350px}.c3{width:220px;height:220px}
-.art-sun{position:absolute;left:50%;top:45%;transform:translate(-50%,-50%);font-size:180px;color:#a24a31;opacity:.7}
-.art-arch{position:absolute;left:50%;bottom:84px;transform:translateX(-50%);width:210px;height:270px;border:12px solid #5e4735;border-bottom:0;border-radius:110px 110px 0 0;opacity:.12}
-.art-label{position:absolute;left:45px;bottom:42px;display:flex;flex-direction:column;color:#30231c}.art-label strong{font:500 64px/.8 'Cormorant Garamond',serif;letter-spacing:.06em}.art-label span{font:700 7px 'DM Sans';letter-spacing:.27em;margin-top:8px}
-.art-stamp{position:absolute;right:38px;top:40px;border:1px solid #a24a31;color:#a24a31;padding:10px 12px;text-align:center;transform:rotate(-8deg);font:600 15px Georgia,serif}.art-stamp small{font:7px 'DM Sans';letter-spacing:.15em}
-.art-tape{position:absolute;width:145px;height:34px;background:rgba(244,222,173,.78);top:5px;left:50%;transform:translateX(-50%) rotate(-3deg);box-shadow:0 2px 5px rgba(40,20,5,.1)}
-.mast-bottom{padding:14px 0 15px;border-top:1px solid rgba(65,42,23,.14)}
-.journal-section{padding:105px 0 120px}
-.section-intro{display:grid;grid-template-columns:58px 1fr auto;align-items:end;gap:18px;margin-bottom:30px}.section-number{font:500 42px 'Cormorant Garamond',serif;color:#a24a31}.section-intro p{font:700 9px 'DM Sans';letter-spacing:.2em;color:#a24a31;margin-bottom:4px}.section-intro h2{font:500 55px/.9 'Cormorant Garamond',serif;color:#30231c}.section-intro>a{border-bottom:1px solid #a24a31;padding-bottom:5px;color:#8e402c;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase}
-.journal-filters{border-top:1px solid rgba(65,42,23,.16);border-bottom:1px solid rgba(65,42,23,.16);padding:13px 0;margin-bottom:38px}.journal-filters button{font:600 9px 'DM Sans'!important;letter-spacing:.16em;text-transform:uppercase;padding:5px 13px!important;color:#817264!important}.journal-filters button:first-child{color:#a24a31!important}
-.journal-grid{grid-template-columns:repeat(12,1fr)!important;gap:26px 20px!important}
-.journal-grid .memory-card{grid-column:span 4;min-height:280px!important;padding:25px!important;background:#f8f0e0!important;border:0!important;border-top:1px solid #bda88d!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
-.journal-grid .memory-card:nth-child(4n){grid-column:span 6}.journal-grid .memory-card:nth-child(5n){grid-column:span 3}
-.journal-grid .memory-card:before{content:"";position:absolute;left:0;top:0;width:4px;height:48px;background:#a24a31}.journal-grid .memory-card:after{font:7px 'DM Sans';letter-spacing:.18em;color:#ad9b86!important}
-.journal-grid .memory-card:nth-child(3n+2){transform:translateY(12px) rotate(.6deg)!important}.journal-grid .memory-card:nth-child(3n){transform:rotate(-.5deg)!important}.journal-grid .memory-card:nth-child(3n+1){transform:rotate(.2deg)!important}
-.journal-grid .memory-card:hover{transform:translateY(-7px) rotate(0)!important;box-shadow:0 18px 30px rgba(68,43,22,.1)!important}
-.journal-grid .memory-stamp{width:44px;height:44px;border:1px solid #bd765b;border-radius:50%;font-size:20px;margin-bottom:28px;color:#a24a31}
-.journal-grid .eyebrow{font:700 8px 'DM Sans'!important;letter-spacing:.2em!important;color:#a24a31!important}
-.journal-grid h3{font:500 34px/.95 'Cormorant Garamond',serif!important;letter-spacing:-.02em;color:#30231c!important;margin:10px 0 14px!important}
-.journal-grid p{font-size:11px!important;color:#75675a!important}.journal-grid small{font-size:9px!important;color:#a09281!important;letter-spacing:.04em}
-.journal-grid img,.journal-grid video{height:175px!important;object-fit:cover;filter:sepia(.1) saturate(.85);margin:-25px -25px 20px;width:calc(100% + 50px)!important;border:0!important}
-.journal-next{min-height:360px;background:#30231c;color:#f4ead8;margin:0 calc(50% - 50vw);padding:85px max(7vw,30px);display:flex;justify-content:space-between;align-items:end;gap:30px;position:relative;overflow:hidden}.journal-next:after{content:"भारत";position:absolute;right:5vw;top:-55px;font:400 300px/.8 Georgia,serif;color:#d5a75e;opacity:.07}.journal-next>div{position:relative;z-index:1}.journal-next span{font:700 9px 'DM Sans';letter-spacing:.22em;color:#c99258}.journal-next h2{font:500 clamp(48px,6vw,84px)/.86 'Cormorant Garamond',serif;margin-top:14px;letter-spacing:-.04em}.journal-next h2 em{font-style:normal;color:#d59b55}.journal-next>a{position:relative;z-index:1;border:1px solid #8d7760;padding:15px 19px;color:#f2e3cc;font:600 10px 'DM Sans';letter-spacing:.1em;text-transform:uppercase}.journal-next b{font-size:17px;margin-left:18px}
-@media(max-width:900px){.mast-main{grid-template-columns:1fr}.mast-copy{padding:55px 15px}.journal-art{margin:10px 15px 45px;min-height:470px}.journal-grid .memory-card,.journal-grid .memory-card:nth-child(4n),.journal-grid .memory-card:nth-child(5n){grid-column:span 6}.journal-next{flex-direction:column;align-items:flex-start}}
-@media(max-width:620px){.mast-copy h1{font-size:60px}.mast-top,.mast-bottom{font-size:7px}.journal-grid .memory-card,.journal-grid .memory-card:nth-child(4n),.journal-grid .memory-card:nth-child(5n){grid-column:1/-1}.section-intro{grid-template-columns:40px 1fr}.section-intro>a{grid-column:2}.section-intro h2{font-size:43px}.journal-art{min-height:390px}.c1{width:300px;height:300px}.c2{width:225px;height:225px}.c3{width:150px;height:150px}.art-sun{font-size:120px}.art-label strong{font-size:48px}}
+/* SUTRA-GEO scrapbook — minimal site-native design */
+.scrapbook-page{padding-top:54px!important}
+.scrap-intro{display:grid;grid-template-columns:1fr 330px;gap:70px;align-items:center;padding:30px 0 54px;border-bottom:1px solid var(--line)}
+.scrap-intro h1{font-size:clamp(52px,6vw,78px);margin:10px 0 16px;letter-spacing:-.035em}.scrap-intro h1 em{font-style:normal;color:var(--terracotta)}
+.scrap-lede{max-width:560px;color:var(--muted);font-size:15px}
+.scrap-paper{height:230px;background:#f4e6ca;border:1px solid #d2bd98;box-shadow:8px 10px 0 rgba(80,50,25,.06);position:relative;display:flex;flex-direction:column;justify-content:center;padding:30px;transform:rotate(2deg);overflow:hidden}
+.scrap-paper:before{content:"";position:absolute;inset:12px;border:1px solid rgba(130,85,40,.2)}.scrap-paper span{font:500 22px Georgia,serif;color:var(--terracotta)}.scrap-paper strong{font:500 52px 'Cormorant Garamond',serif;letter-spacing:.1em}.scrap-paper small{font-size:8px;letter-spacing:.18em;color:var(--muted)}.scrap-paper i{position:absolute;right:28px;top:28px;font-style:normal;font-size:34px;color:var(--gold);opacity:.65}
+.scrap-toolbar{display:flex;justify-content:space-between;align-items:center;padding:28px 0 14px;font-size:9px;letter-spacing:.14em;color:#8a7969}.scrap-toolbar div{display:flex;gap:9px;align-items:center}.scrap-count{font-weight:700;color:var(--terracotta)}.scrap-toolbar a{color:var(--terracotta);font-weight:700;border-bottom:1px solid currentColor;padding-bottom:3px}
+.scrap-filters{margin-bottom:28px}.scrap-filters button{background:transparent!important;border:0!important;border-bottom:1px solid transparent!important;border-radius:0!important;padding:7px 11px!important;color:#786b5d!important;font-size:9px!important;letter-spacing:.13em;text-transform:uppercase}.scrap-filters button:first-child{color:var(--terracotta)!important;border-color:var(--terracotta)!important}
+.scrapbook-grid{display:grid!important;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start;padding-bottom:75px}
+.scrapbook-grid .memory-card{min-height:220px;background:rgba(255,250,240,.82)!important;border:1px solid var(--line)!important;border-radius:16px!important;box-shadow:0 8px 25px rgba(70,44,20,.06)!important;padding:22px!important;transition:transform .2s,box-shadow .2s}.scrapbook-grid .memory-card:nth-child(3n+2){transform:translateY(10px)}.scrapbook-grid .memory-card:hover{transform:translateY(-4px)!important;box-shadow:0 14px 32px rgba(70,44,20,.1)!important}
+.scrapbook-grid .memory-stamp{font-size:32px;color:var(--terracotta);opacity:.85}.scrapbook-grid h3{font-size:27px!important;margin:7px 0!important}.scrapbook-grid p{font-size:12px;color:var(--muted)}.scrapbook-grid small{font-size:10px;color:#9a8b7b}.scrapbook-grid img,.scrapbook-grid video{border-radius:12px!important;margin:-1px -1px 14px!important;width:calc(100% + 2px)!important;height:155px!important;object-fit:cover!important;filter:saturate(.9)}
+.scrap-next{margin:0 calc(50% - 50vw);padding:55px max(7vw,25px);background:var(--ink);color:#f8eddb;display:flex;justify-content:space-between;align-items:center;gap:30px}.scrap-next span{font-size:9px;letter-spacing:.2em;color:#d4a55c}.scrap-next h2{font-size:40px;margin-top:8px}.scrap-next a{border:1px solid #796552;padding:11px 15px;color:#f8eddb;font-size:10px;letter-spacing:.08em;white-space:nowrap}
+@media(max-width:800px){.scrap-intro{grid-template-columns:1fr;gap:35px}.scrap-paper{width:min(100%,330px)}.scrapbook-grid{grid-template-columns:1fr}.scrapbook-grid .memory-card:nth-child(3n+2){transform:none}.scrap-next{flex-direction:column;align-items:flex-start}.scrap-next h2{font-size:34px}}
+@media(max-width:560px){.scrapbook-page{padding-top:28px!important}.scrap-toolbar{align-items:flex-start;gap:14px}.scrap-toolbar div{flex-wrap:wrap}.scrap-intro h1{font-size:52px}}
