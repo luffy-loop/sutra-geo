@@ -59,3 +59,4 @@
 @media(max-width:760px){
   .sutra-book-intro{padding:12px 10px 16px;grid-template-rows:auto 1fr auto auto auto}.sutra-book-stage{gap:0}.sutra-book-3d{width:92vw;max-height:64vh}.sutra-book-arrow{position:absolute;font-size:52px;padding:8px;top:50%;transform:translateY(-50%)}.sutra-book-arrow.left{left:-2px}.sutra-book-arrow.right{right:-2px}.sutra-book-meta{grid-template-columns:1fr;gap:9px;text-align:center}.sutra-book-brand{justify-content:center}.sutra-book-caption{grid-row:2}.sutra-book-tools{justify-self:center;grid-row:3}.sutra-book-index{margin-top:2px}.sutra-loupe{display:none}.sutra-book-hint{font-size:8px}.sutra-open-btn{padding:11px 17px}}
 @media(prefers-reduced-motion:reduce){.sutra-book-arrow,.sutra-open-btn{transition:none}.sutra-book-intro.is-closing{animation:none;display:none}}
+\nbody.sutra-scrapbook-lock{overflow:hidden}
