@@ -150,6 +150,22 @@
     intro.classList.add('is-open');
     if(idx===0 && !turn){shoveLoupe('next');startTurn('next');commit()}
   }
+  function autoEnter(){
+    if(intro.classList.contains('is-closing')) return;
+    intro.classList.add('is-open');
+    if(idx===0 && !turn){shoveLoupe('next');startTurn('next');commit()}
+    setTimeout(()=>{
+      if(intro.classList.contains('is-closing')) return;
+      intro.classList.add('is-closing');
+      document.body.classList.remove('sutra-scrapbook-lock');
+      setTimeout(()=>{
+        intro.remove();
+        const target=document.getElementById('scrapbookContent');
+        if(target) window.scrollTo({top:Math.max(0,target.offsetTop-18),behavior:'smooth'});
+      },520);
+    },1150);
+  }
   introOpen.addEventListener('click',openBook);skip.addEventListener('click',closeIntro);
   document.body.classList.add('sutra-scrapbook-lock');paint();restLoupe();syncZoomRead();
+  setTimeout(autoEnter,420);
 })();
