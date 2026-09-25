@@ -60,6 +60,25 @@ function toast(message){let el=document.getElementById('toast');if(!el){el=docum
 window.toast=toast;
 function getInitials(name='PG'){return name.trim().split(/\s+/).map(x=>x[0]).join('').slice(0,2).toUpperCase()||'PG';}
 
+function renderStreak(){
+  const userKey=(SutraAuth.user().email||'guest').toLowerCase();
+  const streak=Number(localStorage.getItem('sutra_streak_'+userKey)||0);
+  document.querySelectorAll('.streak-count').forEach(el=>el.textContent=streak);
+}
+function updateStreak(){
+  // Daily-quiz-claim streak: increments when the claim happens on the day right
+  // after the previous claim, resets to 1 otherwise. Stored per-account.
+  const userKey=(SutraAuth.user().email||'guest').toLowerCase();
+  const today=new Date().toISOString().slice(0,10);
+  const yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  const lastStreakDate=localStorage.getItem('sutra_streak_last_'+userKey);
+  const current=Number(localStorage.getItem('sutra_streak_'+userKey)||0);
+  const next=(lastStreakDate===yesterday)?current+1:1;
+  localStorage.setItem('sutra_streak_'+userKey,String(next));
+  localStorage.setItem('sutra_streak_last_'+userKey,today);
+  renderStreak();
+  return next;
+}
 function runDailySutra(){
   const today=new Date().toISOString().slice(0,10);
   const userKey=(SutraAuth.user().email||'guest').toLowerCase();
@@ -68,12 +87,15 @@ function runDailySutra(){
   const status=document.getElementById('dailyStatus');
   if(claim){claim.disabled=last===today;claim.textContent=last===today?'Daily reward claimed ✓':'Claim today’s +25 coins';}
   if(status&&last===today)status.textContent='You already claimed today’s Daily Sutra. Come back tomorrow.';
+  renderStreak();
 }
 window.claimDailySutra=function(){
   const today=new Date().toISOString().slice(0,10);
   if(localStorage.getItem('sutra_daily_quiz_date_'+(SutraAuth.user().email||'guest').toLowerCase())===today){toast('Daily Sutra already claimed today.');return;}
   localStorage.setItem('sutra_daily_quiz_date_'+(SutraAuth.user().email||'guest').toLowerCase(),today);
   SutraWallet.add(25,'Daily Sutra quiz');
+  const streak=updateStreak();
+  toast(`+25 Sutra Coins · 🔥 ${streak}-day streak`);
   runDailySutra();
 };
 
@@ -122,10 +144,25 @@ window.SutraNodeCapture={
 
 window.addEventListener('storage',()=>{renderPoints();renderCoinStats();});
 
+// Pages that render directly from the heritage dataset. If js/heritageData.js
+// fails to load (slow network, blocked script, bad connection), these pages
+// would otherwise render silently empty — show a visible fallback instead.
+const SUTRA_DATA_DEPENDENT_PAGES=['map','ar','ai','living','quest','passport','explore'];
+function checkHeritageDataLoaded(){
+  const page=document.body.dataset.page;
+  if(!SUTRA_DATA_DEPENDENT_PAGES.includes(page))return;
+  if(window.SUTRA_HERITAGE&&window.SUTRA_HERITAGE.length)return;
+  const main=document.querySelector('main')||document.body;
+  const banner=document.createElement('div');
+  banner.className='panel';
+  banner.style.cssText='margin:16px 0;padding:18px;border:1px solid #e2b93b;background:#fff8e1;border-radius:10px';
+  banner.innerHTML='<b>⚠️ Heritage data could not be loaded.</b><br><small>Check your connection and reload this page. If you are offline, download the Heritage Pack from the Map page first.</small>';
+  main.prepend(banner);
+}
 document.addEventListener('DOMContentLoaded',()=>{
   const protectedPage=!!document.body.dataset.page;
   if(protectedPage&&!SutraAuth.isLoggedIn()){window.location.href='index.html';return;}
-  renderPoints();renderCoinStats();runDailySutra();SutraSettings.apply();registerSutraSW();
+  renderPoints();renderCoinStats();runDailySutra();SutraSettings.apply();registerSutraSW();checkHeritageDataLoaded();
   const user=SutraAuth.user();
   const nameEl=document.getElementById('userName');if(nameEl)nameEl.textContent=(user.name||'EXPLORER').toUpperCase();
   const avatar=document.getElementById('profileButton');if(avatar)avatar.textContent=getInitials(user.name);

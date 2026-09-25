@@ -10,4 +10,23 @@ function selectQuest(index){if(timer||alreadyDone())return;selected=index;docume
 function startQuest(){if(alreadyDone())return;if(timer)return;setContext();remaining=30;document.getElementById('questTimer').textContent=remaining;document.getElementById('questPhase').textContent='QUEST LIVE';document.getElementById('startQuest').disabled=true;document.getElementById('submitQuest').disabled=false;toast('30-second Heritage Micro-Quest started. Choose the correct answer.');timer=setInterval(()=>{remaining--;document.getElementById('questTimer').textContent=remaining;if(remaining<=0){clearInterval(timer);timer=null;submitQuest(true)}},1000)}
 function submitQuest(timedOut=false){if(alreadyDone()){toast('This quest is already completed on this account.');return}if(selected===null){document.getElementById('questResult').textContent='Choose an answer first.';return}if(!verified&&!new URLSearchParams(location.search).has('demo')){document.getElementById('questResult').textContent='You are not inside the 50m geofence. Use Demo Unlock on the map for the prototype simulation.';return}const correct=selected===node.quest.answer;const result=document.getElementById('questResult');document.querySelectorAll('.micro-option').forEach((b,i)=>{if(i===node.quest.answer)b.classList.add('correct');if(i===selected&&i!==node.quest.answer)b.classList.add('wrong')});if(correct){localStorage.setItem(key(),'1');const firstDiscovery=!SutraNodeCapture.get().includes(node.id);SutraNodeCapture.capture(node.id,node.name,`${node.city} · ${node.state}`);if(firstDiscovery)SutraWallet.add(10,'Heritage Node discovered');result.innerHTML=`<b>✓ Quest Completed</b><br>+${node.quest.reward} Sutra Coins`;SutraWallet.add(node.quest.reward,`Heritage Micro-Quest: ${node.name}`);SutraJourney.add(node.city,node.state,node.name,'quest-completed');document.getElementById('questReward').hidden=false;document.getElementById('rewardCoins').textContent=`+${node.quest.reward}`;document.getElementById('startQuest').disabled=true;document.getElementById('submitQuest').disabled=true;document.getElementById('submitQuest').textContent='Completed ✓';}else{result.textContent=`Not quite. The answer is ${node.quest.options[node.quest.answer]}. ${timedOut?'The 30 seconds are up.':''}`;document.getElementById('submitQuest').disabled=true;document.getElementById('startQuest').disabled=false}}
 window.selectQuest=selectQuest;window.startQuest=startQuest;window.submitQuest=submitQuest;
-document.addEventListener('DOMContentLoaded',()=>{renderNode();checkLocation();document.getElementById('startQuest')?.addEventListener('click',startQuest);document.getElementById('submitQuest')?.addEventListener('click',()=>submitQuest(false))});
+// Optional camera-view overlay: a real getUserMedia() preview with the node
+// story overlaid, clearly labeled as a visual layer only — no object
+// recognition or markerless tracking is implemented or implied.
+let cameraStream=null;
+async function toggleCameraView(){
+  const stage=document.getElementById('cameraStage');
+  const btn=document.getElementById('toggleCamera');
+  if(cameraStream){cameraStream.getTracks().forEach(t=>t.stop());cameraStream=null;stage.style.display='none';btn.textContent='Enable camera view';return}
+  if(!navigator.mediaDevices?.getUserMedia){toast('Camera is not available in this browser.');return}
+  try{
+    cameraStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'},audio:false});
+    document.getElementById('cameraFeed').srcObject=cameraStream;
+    document.getElementById('cameraMarkerEmoji').textContent=node.emoji||'📍';
+    document.getElementById('cameraNodeName').textContent=node.name;
+    document.getElementById('cameraNodeStory').textContent=node.shortStory||node.story;
+    stage.style.display='block';btn.textContent='Turn off camera view';
+  }catch(e){toast('Camera permission was not granted.')}
+}
+window.addEventListener('beforeunload',()=>{if(cameraStream)cameraStream.getTracks().forEach(t=>t.stop())});
+document.addEventListener('DOMContentLoaded',()=>{renderNode();checkLocation();document.getElementById('startQuest')?.addEventListener('click',startQuest);document.getElementById('submitQuest')?.addEventListener('click',()=>submitQuest(false));document.getElementById('toggleCamera')?.addEventListener('click',toggleCameraView)});

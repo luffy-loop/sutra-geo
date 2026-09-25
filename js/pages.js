@@ -102,6 +102,14 @@ function saveStay(index) {
 function bookStay(index) {
   const x = SUTRA_DATA.stays[index];
   if (!x) return;
+  if (typeof openInquiryModal !== 'function') { legacyBookStay(x); return; }
+  openInquiryModal('stay', x.name, `${x.city} · ${x.state}`, () => {
+    const result = SutraScrapbook.save({ title: x.name, place: `${x.city} · ${x.state}`, type: 'Heritage stay', symbol: '🏨' });
+    toast(result.added ? 'Stay request confirmed · saved to scrapbook ✦' : 'Stay request confirmed · already in scrapbook.');
+    SutraWallet.add(50, `Stay request: ${x.name}`);
+  });
+}
+function legacyBookStay(x) {
   if (confirm(`Book ${x.name} in ${x.city}?`)) {
     const result = SutraScrapbook.save({ title: x.name, place: `${x.city} · ${x.state}`, type: 'Heritage stay', symbol: '🏨' });
     toast(result.added ? 'Stay request confirmed · saved to scrapbook ✦' : 'Stay request confirmed · already in scrapbook.');

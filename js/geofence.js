@@ -1,4 +1,5 @@
 function distanceMeters(lat1,lon1,lat2,lon2){const R=6371000,rad=Math.PI/180,dLat=(lat2-lat1)*rad,dLon=(lon2-lon1)*rad;const a=Math.sin(dLat/2)**2+Math.cos(lat1*rad)*Math.cos(lat2*rad)*Math.sin(dLon/2)**2;return 2*R*Math.asin(Math.sqrt(a))}
+window.distanceMeters=distanceMeters;
 function nodeStorageKey(){return 'sutra_geofence_seen_'+(SutraAuth.user().email||'guest').toLowerCase()}
 function seenNodes(){try{return JSON.parse(localStorage.getItem(nodeStorageKey())||'[]')}catch{return[]}}
 function markSeen(id){const x=seenNodes();if(!x.includes(id)){x.push(id);localStorage.setItem(nodeStorageKey(),JSON.stringify(x))}}
