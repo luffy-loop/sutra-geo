@@ -153,19 +153,40 @@
   function autoEnter(){
     if(intro.classList.contains('is-closing')) return;
     intro.classList.add('is-open');
-    if(idx===0 && !turn){shoveLoupe('next');startTurn('next');commit()}
-    setTimeout(()=>{
+    introOpen.style.display='none';
+    skip.style.display='none';
+    left.style.display='none';
+    right.style.display='none';
+    loupeBtn.style.display='none';
+    zoomInBtn.style.display='none';
+    zoomOutBtn.style.display='none';
+    index.style.opacity='0';
+    caption.style.opacity='.45';
+
+    let dir='next',started=performance.now();
+    function loop(now){
       if(intro.classList.contains('is-closing')) return;
-      intro.classList.add('is-closing');
-      document.body.classList.remove('sutra-scrapbook-lock');
-      setTimeout(()=>{
-        intro.remove();
-        const target=document.getElementById('scrapbookContent');
-        if(target) window.scrollTo({top:Math.max(0,target.offsetTop-18),behavior:'smooth'});
-      },520);
-    },1150);
+      if(now-started>=5600){
+        intro.classList.add('is-closing');
+        document.body.classList.remove('sutra-scrapbook-lock');
+        setTimeout(()=>{
+          intro.remove();
+          const target=document.getElementById('scrapbookContent');
+          if(target) window.scrollTo({top:Math.max(0,target.offsetTop-18),behavior:'smooth'});
+        },520);
+        return;
+      }
+      if(!turn){
+        shoveLoupe(dir);
+        startTurn(dir);
+        commit();
+        dir=dir==='next'?'prev':'next';
+      }
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
   }
   introOpen.addEventListener('click',openBook);skip.addEventListener('click',closeIntro);
   document.body.classList.add('sutra-scrapbook-lock');paint();restLoupe();syncZoomRead();
-  setTimeout(autoEnter,420);
+  setTimeout(autoEnter,180);
 })();
