@@ -13,7 +13,9 @@
 .sutra-book-tilt{position:relative;width:100%;height:100%;transform-style:preserve-3d;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) scale(var(--zoom,1));will-change:transform}
 .sutra-book{position:relative;width:100%;height:100%;transform-style:preserve-3d;z-index:2}
 .sutra-book-cast{position:absolute;left:5%;right:5%;top:28%;bottom:2%;z-index:0;border-radius:50%;background:radial-gradient(50% 50% at 50% 60%,rgba(58,44,26,.34),rgba(58,44,26,.13) 43%,transparent 75%);filter:blur(25px)}
-.sutra-book-full{position:absolute;inset:0;border-radius:3px;overflow:hidden;background:#f8f0de;box-shadow:0 25px 45px rgba(56,39,22,.22)}
+.sutra-book-full{position:absolute;inset:0;border-radius:3px;overflow:hidden;background:#f8f0de;box-shadow:0 25px 45px rgba(56,39,22,.22),0 2px 0 rgba(255,255,255,.8) inset;transform-style:preserve-3d}
+.sutra-book-full:before{content:"";position:absolute;left:0;top:0;bottom:0;width:18px;background:linear-gradient(90deg,rgba(54,35,18,.34),rgba(255,255,255,.15),transparent);z-index:2;pointer-events:none}
+.sutra-book-full:after{content:"";position:absolute;left:1.2%;right:1.2%;bottom:-13px;height:18px;border-radius:0 0 8px 8px;background:repeating-linear-gradient(180deg,#d8c5a4 0 2px,#bda783 2px 3px);box-shadow:0 8px 18px rgba(48,33,18,.2);transform:translateZ(-18px);pointer-events:none}
 .sutra-book-full img{display:block;width:100%;height:100%;object-fit:cover}
 .sutra-book-half{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;background:#f8f0de}
 .sutra-book-half.left{left:0}.sutra-book-half.right{right:0}
