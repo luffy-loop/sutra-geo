@@ -1,0 +1,1 @@
+// Story logic is handled by js/pages.js in SUTRA-GEO 2.0.

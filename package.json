@@ -1,0 +1,8 @@
+{
+  "name": "sutra-geo",
+  "version": "2.0.0",
+  "private": true,
+  "description": "SUTRA-GEO — India's living heritage, culture and travel explorer",
+  "scripts": {"start": "npx serve ."},
+  "dependencies": {}
+}

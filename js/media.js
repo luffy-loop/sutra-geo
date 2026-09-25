@@ -1,0 +1,6 @@
+const SUTRA_MEDIA_DB='sutra_media_db';const SUTRA_MEDIA_STORE='media';
+function mediaOpen(){return new Promise((resolve,reject)=>{const r=indexedDB.open(SUTRA_MEDIA_DB,1);r.onupgradeneeded=()=>{const db=r.result;if(!db.objectStoreNames.contains(SUTRA_MEDIA_STORE))db.createObjectStore(SUTRA_MEDIA_STORE,{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function mediaPut(item){const db=await mediaOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(SUTRA_MEDIA_STORE,'readwrite');tx.objectStore(SUTRA_MEDIA_STORE).put(item);tx.oncomplete=()=>resolve(item);tx.onerror=()=>reject(tx.error)})}
+async function mediaAll(){const db=await mediaOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(SUTRA_MEDIA_STORE,'readonly');const r=tx.objectStore(SUTRA_MEDIA_STORE).getAll();r.onsuccess=()=>resolve(r.result.filter(x=>x.email===(SutraAuth.user().email||'').toLowerCase()));r.onerror=()=>reject(r.error)})}
+async function mediaDelete(id){const db=await mediaOpen();return new Promise((resolve,reject)=>{const tx=db.transaction(SUTRA_MEDIA_STORE,'readwrite');tx.objectStore(SUTRA_MEDIA_STORE).delete(id);tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error)})}
+window.SutraMedia={put:mediaPut,all:mediaAll,remove:mediaDelete};

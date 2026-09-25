@@ -1,0 +1,1 @@
+// Legacy compatibility file. The redesigned app uses js/data.js.

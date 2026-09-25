@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SUTRA-GEO | India's Living Heritage</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+  <main class="auth-shell">
+    <section class="auth-story">
+      <div class="brand-lockup"><span class="brand-mark">✦</span><span>SUTRA-GEO</span></div>
+      <p class="eyebrow">THE LIVING MAP OF INDIA</p>
+      <h1>Every state has a story.<br><em>Every district has a soul.</em></h1>
+      <p class="lead">Turn everyday movement into discovery. Find living heritage, local stories, artisans and hidden cultural places — then earn Sutra Coins for what you uncover.</p>
+      <div class="heritage-strip"><span>HERITAGE NODES</span><span>LOCAL STORIES</span><span>ARTISANS</span><span>QUESTS</span></div>
+      <div class="auth-quote">“Travel is not only seeing a new place. It is learning why a place became what it is.”</div>
+    </section>
+    <section class="auth-card">
+      <div class="seal">भारत<br><small>BHARAT</small></div>
+      <p class="eyebrow">WELCOME, EXPLORER</p>
+      <h2>Begin your journey</h2>
+      <p class="muted">Sign in to unlock the full SUTRA-GEO experience.</p>
+      <form id="loginForm" class="stack-form">
+        <label>Full name<input id="loginName" required placeholder="Your name"></label>
+        <label>Email<input id="loginEmail" type="email" required placeholder="you@example.com"></label>
+        <label>Password<input id="loginPassword" type="password" required minlength="4" placeholder="••••••••"></label>
+        <label>Traveller type<select id="travellerType"><option value="india">I am travelling within India</option><option value="international">I am visiting India from another country</option></select></label>
+        <button class="btn btn-primary" type="submit">Enter SUTRA-GEO <span>→</span></button>
+      </form>
+      <div class="auth-benefits"><div><b>28+</b><span>states & UTs</span></div><div><b>700+</b><span>district stories</span></div><div><b>∞</b><span>journeys to make</span></div></div>
+      <p class="tiny">Demo project: account details are stored only in your browser.</p>
+    </section>
+  </main>
+  <script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded', () => { if (SutraAuth.isLoggedIn()) window.location.href='explore.html'; });</script>
+</body>
+</html>

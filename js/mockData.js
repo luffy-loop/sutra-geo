@@ -1,0 +1,1 @@
+// Legacy compatibility file. Demo content now lives in js/data.js.
