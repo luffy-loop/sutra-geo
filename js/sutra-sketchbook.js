@@ -39,7 +39,7 @@
   const zoomInBtn=document.getElementById('sutraZoomIn'),zoomOutBtn=document.getElementById('sutraZoomOut'),zoomRead=document.getElementById('sutraZoomRead');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches,M=PAGES.length,N=18;
   let idx=0,turn=null,strips=[],spring=null,raf=null,last=0,drag=null,lx=null,ly=null,lgrab=null,loupeOn=true,lTarget=null;
-  const view={rx:0,ry:0,z:1,trx:0,try_:0,tz:1};let viewActive=false;
+  const view={rx:2.5,ry:-4,z:1,trx:2.5,try_:-4,tz:1};let viewActive=false;
 
   function el(t,c){const e=document.createElement(t);if(c)e.className=c;return e}
   function half(pos,i){
@@ -147,9 +147,8 @@
     intro.classList.add('is-closing');setTimeout(()=>{intro.remove();document.body.classList.remove('sutra-scrapbook-lock');document.getElementById('scrapbookContent')?.scrollIntoView({behavior:'smooth',block:'start'})},700);
   }
   function openBook(){
-    if(!intro.classList.contains('is-open')){
-      intro.classList.add('is-open');if(idx===0){shoveLoupe('next');startTurn('next');commit()}setTimeout(closeIntro,900);
-    }else closeIntro();
+    intro.classList.add('is-open');
+    if(idx===0 && !turn){shoveLoupe('next');startTurn('next');commit()}
   }
   introOpen.addEventListener('click',openBook);skip.addEventListener('click',closeIntro);
   document.body.classList.add('sutra-scrapbook-lock');paint();restLoupe();syncZoomRead();
