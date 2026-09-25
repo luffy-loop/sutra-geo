@@ -30,7 +30,6 @@
 .language-demo{margin-top:12px;padding:12px;background:#f6eddd;border-radius:12px;font-size:13px}.journey-impact{margin:20px 0;padding:28px}
 .passport-media-group{margin-bottom:18px}.passport-media-group>.eyebrow{margin-bottom:8px}
 .demo-sequence{padding:22px;margin:18px 0;background:#fff7e6}.demo-sequence-track{display:flex;align-items:center;gap:9px;flex-wrap:wrap;overflow:auto;padding:4px 0}.demo-sequence-track span{font-size:9px;letter-spacing:.08em;font-weight:800;background:#f1e3cb;border:1px solid var(--line);padding:8px 9px;border-radius:99px;white-space:nowrap}.demo-sequence-track b{color:var(--gold)}
-.demo-sequence{padding:22px;margin:18px 0;background:#fff7e6}.demo-sequence-track{display:flex;align-items:center;gap:9px;flex-wrap:wrap;overflow:auto;padding:4px 0}.demo-sequence-track span{font-size:9px;letter-spacing:.08em;font-weight:800;background:#f1e3cb;border:1px solid var(--line);padding:8px 9px;border-radius:99px;white-space:nowrap}.demo-sequence-track b{color:var(--gold)}
 
 /* --- Added: badges, streak, leaderboard, moderation guidelines, inquiry modal --- */
 .badges-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
@@ -56,6 +55,41 @@
 .inquiry-card p.muted{margin-bottom:16px}
 .inquiry-card .stack-form{margin-top:0}
 .inquiry-actions{display:flex;gap:10px;margin-top:14px}
+
+/* POLISHED EXPLORER + PLANNER */
+.state-card{min-height:238px;padding:0;border-radius:22px;background:#efe4d0;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 12px 30px rgba(65,42,23,.09);border-color:rgba(77,53,34,.16);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.state-card:before{content:"";position:absolute;inset:0;background-image:linear-gradient(180deg,rgba(28,20,14,.03) 20%,rgba(28,20,14,.78) 100%),var(--state-image);background-size:cover;background-position:center;z-index:-2;transform:scale(1.01);transition:transform .45s ease}
+.state-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,248,232,0) 42%,rgba(34,24,17,.18) 100%);z-index:-1}
+.state-card:hover{transform:translateY(-6px);box-shadow:0 22px 45px rgba(65,42,23,.18);border-color:rgba(167,78,53,.45)}
+.state-card:hover:before{transform:scale(1.06)}
+.state-card .state-icon{align-self:flex-start;margin:18px;width:38px;height:38px;display:grid;place-items:center;background:rgba(255,250,240,.9);border:1px solid rgba(255,250,240,.7);border-radius:12px;font-size:19px;box-shadow:0 7px 18px rgba(28,20,14,.15)}
+.state-card h3{font-size:31px;margin:0 20px 3px;color:#fffaf0;text-shadow:0 2px 14px rgba(0,0,0,.28)}
+.state-card p{margin:0 20px 10px;color:rgba(255,250,240,.86);font-size:12px;line-height:1.4;max-width:30ch}
+.state-card .district-count{position:static;align-self:flex-start;margin:0 20px 18px;color:#f3d69d;font-size:10px;letter-spacing:.04em}
+.state-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.planner-layout{grid-template-columns:minmax(340px,.82fr) minmax(0,1.18fr);gap:20px;align-items:stretch}
+.planner-form{padding:30px;background:rgba(255,250,240,.82);box-shadow:0 16px 38px rgba(70,44,20,.08)}
+.planner-form label{gap:8px;color:#594b3e}
+.planner-form select,.planner-form input{min-height:46px;border-color:rgba(77,53,34,.2);background:#fffaf0;transition:border-color .2s,box-shadow .2s,background .2s}
+.planner-form select:focus,.planner-form input:focus{border-color:rgba(167,78,53,.6);box-shadow:0 0 0 4px rgba(167,78,53,.08);background:#fff}
+.planner-form .btn-primary{min-height:48px;border-radius:14px}
+.mini-note{border:1px solid rgba(197,138,52,.16);background:#f5ead6}
+.itinerary{min-height:100%;padding:30px;position:relative;overflow:hidden;background:rgba(255,250,240,.66);box-shadow:0 16px 38px rgba(70,44,20,.06)}
+.itinerary:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(77,53,34,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(77,53,34,.035) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,black,transparent 75%);pointer-events:none}
+.itinerary>*{position:relative;z-index:1}
+.itinerary .empty-state{min-height:430px;display:grid;place-items:center;align-content:center;padding:60px 35px;border:1px dashed rgba(77,53,34,.22);background:rgba(255,250,240,.5)}
+.itinerary .empty-state:before{content:"ROUTE PREVIEW";display:block;font-size:9px;letter-spacing:.24em;color:var(--terracotta);font-weight:700;margin-bottom:6px}
+.itinerary .empty-state span{width:58px;height:58px;display:grid;place-items:center;border:1px solid rgba(183,139,67,.5);border-radius:50%;background:#f6ead5}
+.route-reasons{display:flex;gap:7px;flex-wrap:wrap;margin:15px 0 2px}
+.route-reasons span{padding:6px 9px;border:1px solid var(--line);border-radius:99px;background:#f6eddd;color:#80694e;font-size:10px;font-weight:700}
+.trip-head{padding-bottom:20px}
+.trip-head h2{font-size:35px}
+.trip-day{padding:21px 0}
+.trip-day:hover{background:rgba(247,232,198,.35);margin-inline:-12px;padding-inline:12px;border-radius:12px}
+.route-explain{margin-top:20px;padding:15px 17px;background:#f4e7d1;border:1px solid rgba(77,53,34,.1);border-radius:14px;color:#6d5b4b}
+.route-explain p{margin-top:4px;font-size:12px}
+@media(max-width:950px){.state-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.state-grid{grid-template-columns:1fr}.state-card{min-height:225px}.planner-layout{grid-template-columns:1fr}.itinerary{min-height:460px}}
 
 /* POLISHED EXPLORER + PLANNER */
 .state-card{min-height:238px;padding:0;border-radius:22px;background:#efe4d0;overflow:hidden;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 12px 30px rgba(65,42,23,.09);border-color:rgba(77,53,34,.16);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}

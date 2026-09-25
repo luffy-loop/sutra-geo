@@ -20,7 +20,7 @@ function initExplore() {
       `${s.name} ${s.districts.join(' ')} ${s.tagline} ${s.culture} ${s.dish}`.toLowerCase().includes(q)
     );
     grid.innerHTML = states.map(s => `
-      <article class="state-card" style="--state-image:url('${s.image}') onclick="openState('${s.name.replace(/'/g, "\\'")}')">
+      <article class="state-card" style="--state-image:url('${s.image}')" onclick="openState('${s.name.replace(/'/g, "\\'")}')">
         <div class="state-icon">${s.icon}</div>
         <h3>${s.name}</h3>
         <p>${s.tagline}</p>
