@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUTRA-GEO | Scrapbook</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="css/sutra-sketchbook.css?v=20260925-2"></head><body data-page="scrapbook" class="sutra-scrapbook-page">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUTRA-GEO | Scrapbook</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="css/sutra-journal.css"><link rel="stylesheet" href="css/sutra-sketchbook.css?v=20260925-2"></head><body data-page="scrapbook" class="sutra-scrapbook-page">
 <div id="sutraBookIntro" class="sutra-book-intro" aria-label="SUTRA-GEO India scrapbook entrance">
   <div class="sutra-book-wash"></div>
   <div class="sutra-book-top">
@@ -34,4 +34,30 @@
     <span>Open my scrapbook</span><b>→</b>
   </button>
   <p class="sutra-book-hint">Drag a page · move across the paper · double-click to reset zoom</p>
-</div><div id="toast"></div><header class="topbar"><a class="brand" href="explore.html"><span class="brand-mark">✦</span>SUTRA-GEO</a><nav class="main-nav"><a href="explore.html">Discover</a><a href="map.html">Heritage Map</a><a href="quest.html">Quest</a><a href="stories.html">Living Stories</a><a href="community.html">Community</a><a href="scrapbook.html" data-scrapbook-nav>Scrapbook</a><a href="passport.html">India Passport</a><a href="ai.html">Ask Sutra</a></nav><div class="top-actions"><a class="points-pill" href="store.html">✦ <span class="points-balance">0</span></a><a class="avatar" href="profile.html">PG</a></div></header><main class="page-wrap" id="scrapbookContent"><section class="page-title"><p class="eyebrow">MY INDIA JOURNEY</p><h1>Your <em>Sutra Scrapbook.</em></h1><p>Save places, stories and your own photos or videos. Every item keeps its location.</p></section><section class="scrapbook-head"><div><span class="passport-seal">भारत</span><h2 id="scrapTitle">My India Journey</h2><p id="scrapStats" class="muted"></p></div><div class="hero-actions"><a class="btn btn-ghost" href="profile.html">Add photo / video</a><button class="btn btn-primary" onclick="clearScrapbook()">Clear saved</button></div></section><div class="filter-pills"><button onclick="filterScrapbook('all')">All</button><button onclick="filterScrapbook('photos')">Photos</button><button onclick="filterScrapbook('videos')">Videos</button><button onclick="filterScrapbook('stories')">Stories</button><button onclick="filterScrapbook('saved')">Saved Places</button></div><div id="scrapbookGrid" class="scrap-grid"></div></main><script src="js/app.js"></script><script src="js/media.js"></script><script src="js/scrapbook.js"></script><script src="js/sutra-sketchbook.js?v=20260925-2"></script></body></html>
+</div><div id="toast"></div><header class="topbar"><a class="brand" href="explore.html"><span class="brand-mark">✦</span>SUTRA-GEO</a><nav class="main-nav"><a href="explore.html">Discover</a><a href="map.html">Heritage Map</a><a href="quest.html">Quest</a><a href="stories.html">Living Stories</a><a href="community.html">Community</a><a href="scrapbook.html" data-scrapbook-nav>Scrapbook</a><a href="passport.html">India Passport</a><a href="ai.html">Ask Sutra</a></nav><div class="top-actions"><a class="points-pill" href="store.html">✦ <span class="points-balance">0</span></a><a class="avatar" href="profile.html">PG</a></div></header><main class="page-wrap" id="scrapbookContent">
+<section class="journal-hero">
+  <div class="journal-kicker"><span>भारत</span><i></i><span>SUTRA-GEO FIELD JOURNAL · VOL. 01</span></div>
+  <div class="journal-hero-grid">
+    <div>
+      <p class="eyebrow">MY INDIA JOURNEY</p>
+      <h1>A country,<br><em>kept in pages.</em></h1>
+      <p class="journal-lede">Places you wandered. Stories you heard. People you met. Your journey becomes a living record of India.</p>
+    </div>
+    <div class="journal-postcard">
+      <div class="postcard-sun">✦</div>
+      <div class="postcard-copy"><strong>INDIA</strong><span>DISCOVER · CAPTURE · REMEMBER</span></div>
+      <div class="postcard-stamp">भारत<br><small>HERITAGE</small></div>
+    </div>
+  </div>
+  <div class="journal-rule"><span id="scrapStats">0 memories collected</span><span>KEEP EXPLORING · KEEP THE STORY ALIVE</span></div>
+</section>
+<section class="journal-shelf">
+  <div class="journal-shelf-head">
+    <div><span class="section-no">01</span><h2 id="scrapTitle">My India Journey</h2></div>
+    <div class="journal-actions"><a class="journal-add" href="profile.html">＋ Add memory</a><button class="journal-clear" onclick="clearScrapbook()">Clear saved</button></div>
+  </div>
+  <div class="filter-pills journal-filters"><button onclick="filterScrapbook('all')">All</button><button onclick="filterScrapbook('photos')">Photos</button><button onclick="filterScrapbook('videos')">Videos</button><button onclick="filterScrapbook('stories')">Stories</button><button onclick="filterScrapbook('saved')">Saved Places</button></div>
+  <div id="scrapbookGrid" class="scrap-grid journal-grid"></div>
+</section>
+<section class="journal-footer"><span>END OF CURRENT JOURNEY</span><a href="map.html">Find the next page →</a></section>
+</main><script src="js/app.js"></script><script src="js/media.js"></script><script src="js/scrapbook.js"></script><script src="js/sutra-sketchbook.js?v=20260925-2"></script></body></html>
