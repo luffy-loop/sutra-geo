@@ -20,7 +20,7 @@ function initExplore() {
       `${s.name} ${s.districts.join(' ')} ${s.tagline} ${s.culture} ${s.dish}`.toLowerCase().includes(q)
     );
     grid.innerHTML = states.map(s => `
-      <article class="state-card" onclick="openState('${s.name.replace(/'/g, "\\'")}')">
+      <article class="state-card" style="--state-image:url('${s.image}') onclick="openState('${s.name.replace(/'/g, "\\'")}')">
         <div class="state-icon">${s.icon}</div>
         <h3>${s.name}</h3>
         <p>${s.tagline}</p>
@@ -60,7 +60,7 @@ function initPlanner() {
   if (!state || !district || !build) return; fillStateSelect('planState', false);
   const queryState = new URLSearchParams(window.location.search).get('state'); if (queryState && SUTRA_DATA.states.some(s=>s.name===queryState)) state.value=queryState;
   const updateDistricts=()=>{const s=SUTRA_DATA.states.find(x=>x.name===state.value)||SUTRA_DATA.states[0];district.innerHTML=s.districts.map(d=>`<option value="${d}">${d}</option>`).join('')}; updateDistricts(); state.addEventListener('change',updateDistricts);
-  const date=document.getElementById('planDate');if(date)date.value=new Date().toISOString().slice(0,10);
+  const date=document.getElementById('planDate');if(date){const now=new Date();date.value=new Date(now.getTime()-now.getTimezoneOffset()*60000).toISOString().slice(0,10);}
   build.addEventListener('click',()=>{const s=SUTRA_DATA.states.find(x=>x.name===state.value)||SUTRA_DATA.states[0],d=district.value,mood=document.getElementById('planMood')?.value||'Heritage',travellers=document.getElementById('planTravellers')?.value||'2',itinerary=document.getElementById('itinerary');
     const hyderabad=s.name==='Telangana'&&d==='Hyderabad';const places=hyderabad?[
       ['09:00','Charminar','Heritage Micro-Quest + old-city architecture'],['10:30','Laad Bazaar','Local craft lane + artisan discovery'],['13:00','Local Food Experience','Deccani food story and community kitchen stop'],['16:00','Artisan Experience','Lac bangle / craft demonstration'],['18:00','Oral History Node','Listen to a verified local memory']
